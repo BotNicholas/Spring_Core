@@ -7,7 +7,7 @@
     <bean id="rockMusic" class="com.nicholas.spring.RockMusic"/>
 
     <bean id="musicPlayer" class="com.nicholas.spring.MusicPlayer" scope="prototype">
-        <constructor-arg ref="classicalMusic"/>
+        <property name="music" ref="rockMusic"/>
     </bean>
 
 </beans>
