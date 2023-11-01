@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="classicalMusic" class="com.nicholas.spring.ClassicalMusic"/>
+    <bean id="rockMusic" class="com.nicholas.spring.RockMusic"/>
+
+    <bean id="musicPlayer" class="com.nicholas.spring.MusicPlayer" scope="prototype">
+        <constructor-arg ref="classicalMusic"/>
+    </bean>
+
+</beans>
