@@ -8,6 +8,8 @@
 
     <bean id="musicPlayer" class="com.nicholas.spring.MusicPlayer" scope="prototype">
         <property name="music" ref="rockMusic"/>
+        <property name="name" value="TEST Player"/>
+        <property name="volume" value="10"/>
     </bean>
 
 </beans>

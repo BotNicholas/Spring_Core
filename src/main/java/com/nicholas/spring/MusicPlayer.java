@@ -1,6 +1,8 @@
 package com.nicholas.spring;
 
 public class MusicPlayer {
+    private String name;
+    private int volume;
     private Music music;
 
     public MusicPlayer(){}
@@ -14,7 +16,30 @@ public class MusicPlayer {
         this.music = music;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getVolume() {
+        return volume;
+    }
+
+    public void setVolume(int volume) {
+        this.volume = volume;
+    }
+
+    public Music getMusic() {
+        return music;
+    }
+
     public void play(){
+        System.out.println("-----------------------------");
+        System.out.println("Player: " + name + ";\nVolume: " + volume + ";");
+        System.out.println("-----------------------------\n");
         System.out.println("Now playing: " + music.getSong());
     }
 
