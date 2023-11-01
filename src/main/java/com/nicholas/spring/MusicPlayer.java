@@ -40,7 +40,7 @@ public class MusicPlayer {
         System.out.println("-----------------------------");
         System.out.println("Player: " + name + ";\nVolume: " + volume + ";");
         System.out.println("-----------------------------\n");
-        System.out.println("Now playing: " + music.getSong());
+        System.out.println("\tNow playing: " + music.getSong());
     }
 
 }
