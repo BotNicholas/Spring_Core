@@ -10,7 +10,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 @Component
-@Scope("singleton")
+@Scope("prototype")
 public class MusicPlayer {
     @Value("${MusicPlayer.name}")
     private String name;
