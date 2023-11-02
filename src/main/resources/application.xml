@@ -4,36 +4,6 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:property-placeholder location="classpath:musicPlayer.properties"/>
-
-    <bean id="classicalMusic" class="com.nicholas.spring.ClassicalMusic"/>
-    <bean id="rockMusic" class="com.nicholas.spring.RockMusic"/>
-    <bean id="jazzMusic" class="com.nicholas.spring.JazzMusic"/>
-
-<!--    <bean id="musicList" class="java.util.ArrayList">-->
-<!--        <constructor-arg>-->
-<!--            <list>-->
-<!--                <bean id="classicalMusic" class="com.nicholas.spring.ClassicalMusic"/>-->
-<!--                <bean id="rockMusic" class="com.nicholas.spring.RockMusic"/>-->
-<!--                <bean id="jazzMusic" class="com.nicholas.spring.JazzMusic"/>-->
-<!--            </list>-->
-<!--        </constructor-arg>-->
-<!--    </bean>-->
-
-    <bean id="musicList" class="java.util.ArrayList">
-        <constructor-arg>
-            <list>
-                <ref bean="classicalMusic"/>
-                <ref bean="rockMusic"/>
-                <ref bean="jazzMusic"/>
-            </list>
-        </constructor-arg>
-    </bean>
-
-    <bean id="musicPlayer" class="com.nicholas.spring.MusicPlayer" scope="singleton" init-method="playerInitialisation" destroy-method="playerDestroy">
-        <property name="musicList" ref="musicList"/>
-        <property name="name" value="${MusicPlayer.name}"/>
-        <property name="volume" value="${MusicPlayer.volume}"/>
-    </bean>
+    <context:component-scan base-package="com.nicholas.spring"/>
 
 </beans>

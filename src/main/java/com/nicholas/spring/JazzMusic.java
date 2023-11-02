@@ -1,7 +1,12 @@
 package com.nicholas.spring;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
 public class JazzMusic implements Music{
-    private String song = "So What";
+    @Value("So What")
+    private String song;
 
     public void setSong(String song) {
         this.song = song;
