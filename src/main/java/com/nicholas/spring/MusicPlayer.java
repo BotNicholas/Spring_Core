@@ -10,24 +10,30 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import java.util.Random;
 
-@Component
-@Scope("prototype")
+//@Component
+//@Scope("prototype")
 public class MusicPlayer {
-    @Value("${MusicPlayer.name}")
+//    @Value("${MusicPlayer.name}")
     private String name;
-    @Value("${MusicPlayer.volume}")
+//    @Value("${MusicPlayer.volume}")
     private int volume;
     private Music music1;
     private Music music2;
     private Music music3;
 
-    private MusicPlayer(@Qualifier("classicalMusic") Music music1, @Qualifier("rockMusic") Music music2, @Qualifier("jazzMusic") Music music3){
+//    private MusicPlayer(@Qualifier("classicalMusic") Music music1, @Qualifier("rockMusic") Music music2, @Qualifier("jazzMusic") Music music3){
+//        this.music1 = music1;
+//        this.music2 = music2;
+//        this.music3 = music3;
+//    }
+
+    public MusicPlayer(Music music1, Music music2, Music music3){
         this.music1 = music1;
         this.music2 = music2;
         this.music3 = music3;
     }
 
-    @PostConstruct
+//    @PostConstruct
     public void playerInitialisation(){
         System.out.println("Initializing \""+ name +"\" Music Player");
         System.out.println("\n-----------------------------");
@@ -35,7 +41,7 @@ public class MusicPlayer {
         System.out.println("-----------------------------");
     }
 
-    @PreDestroy
+//    @PreDestroy
     public void playerDestroy(){
         System.out.println("Destroying " + name + " Music Player");
     }

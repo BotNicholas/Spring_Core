@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component
+//@Component
 //@Component("classicalMusicBean")
 //@Scope("singleton")
 public class ClassicalMusic implements Music{
