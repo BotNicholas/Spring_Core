@@ -6,8 +6,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 @Component
-@Scope("prototype")
+@Scope("singleton")
 public class MusicPlayer {
     @Value("${MusicPlayer.name}")
     private String name;
@@ -25,13 +28,15 @@ public class MusicPlayer {
         this.music = music;
     }
 
-//    public void playerInitialisation(){
-//        System.out.println("Initializing "+ name +" Music Player");
-//    }
-//
-//    public void playerDestroy(){
-//        System.out.println("Destroying " + name + " Music Player");
-//    }
+    @PostConstruct
+    public void playerInitialisation(){
+        System.out.println("Initializing "+ name +" Music Player");
+    }
+
+    @PreDestroy
+    public void playerDestroy(){
+        System.out.println("Destroying " + name + " Music Player");
+    }
 
     public void setMusic(Music music){
         this.music = music;
