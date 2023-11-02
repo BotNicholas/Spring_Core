@@ -15,7 +15,7 @@ public class MusicPlayer {
 //    public MusicPlayer(){}
 
     //If we autowire on constructor, we don't need Default constructor.
-    @Autowired
+    //If constructor is single, we don't even need @Autowired annotation!
     private MusicPlayer(@Qualifier("classicalMusic") Music music){
         this.music = music;
     }
