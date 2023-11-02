@@ -22,9 +22,9 @@ public class MusicPlayer {
     private int genresCount = 3;
     private List<Music> music;
 
-
+//    This way Spring will create Music list itself
     @Autowired
-    public MusicPlayer(@Qualifier("musicList") List<Music> music){
+    public MusicPlayer(List<Music> music){
         this.music = music;
     }
 
@@ -68,7 +68,7 @@ public class MusicPlayer {
     public void play(){
         System.out.print("\tPlaying: ");
         Music genre = music.get(new Random().nextInt(0, genresCount));
-        System.out.println(genre.getSongList().get(new Random().nextInt(0, genre.getSongList().size()+1)));
+        System.out.println(genre.getSongList().get(new Random().nextInt(0, genre.getSongList().size())));
     }
 
 }
