@@ -2,12 +2,17 @@ package com.nicholas.spring;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
+@Scope("prototype")
 public class MusicPlayer {
-//    private String name;
-//    private int volume;
+    @Value("${MusicPlayer.name}")
+    private String name;
+    @Value("${MusicPlayer.volume}")
+    private int volume;
     private Music music;
 
 
@@ -32,30 +37,30 @@ public class MusicPlayer {
         this.music = music;
     }
 
-//    public String getName() {
-//        return name;
-//    }
-//
-//    public void setName(String name) {
-//        this.name = name;
-//    }
-//
-//    public int getVolume() {
-//        return volume;
-//    }
-//
-//    public void setVolume(int volume) {
-//        this.volume = volume;
-//    }
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getVolume() {
+        return volume;
+    }
+
+    public void setVolume(int volume) {
+        this.volume = volume;
+    }
 
     public Music getMusic() {
         return music;
     }
 
     public void play(){
-//        System.out.println("-----------------------------");
-//        System.out.println("Player: " + name + ";\nVolume: " + volume + ";");
-//        System.out.println("-----------------------------\n");
+        System.out.println("-----------------------------");
+        System.out.println("Player: " + name + ";\nVolume: " + volume + ";");
+        System.out.println("-----------------------------\n");
         System.out.println("Playing: " + music.getSong());
     }
 
