@@ -8,15 +8,15 @@ import org.springframework.stereotype.Component;
 public class MusicPlayer {
 //    private String name;
 //    private int volume;
-    @Autowired
-    @Qualifier("classicalMusic")
     private Music music;
 
-//    public MusicPlayer(){}
-//
-//    private MusicPlayer(Music music){
-//        this.music = music;
-//    }
+
+    //is required for field based and setter based DI
+    public MusicPlayer(){}
+
+    private MusicPlayer(Music music){
+        this.music = music;
+    }
 
 //    public void playerInitialisation(){
 //        System.out.println("Initializing "+ name +" Music Player");
@@ -26,6 +26,8 @@ public class MusicPlayer {
 //        System.out.println("Destroying " + name + " Music Player");
 //    }
 
+    @Autowired
+    @Qualifier("classicalMusic")
     public void setMusic(Music music){
         this.music = music;
     }
