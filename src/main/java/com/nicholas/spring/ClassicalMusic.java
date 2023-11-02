@@ -4,18 +4,26 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 //@Component("classicalMusicBean")
 //@Scope("singleton")
 public class ClassicalMusic implements Music{
-    @Value("Lacrimosa")
-    private String song;
+    private List<String> songList;
 
-    public void setSong(String song) {
-        this.song = song;
+
+    public ClassicalMusic(){
+        this.songList = List.of("Lacrimosa",
+                           "Caprice №24",
+                           "Moon Sonata");
     }
 
-    public String getSong() {
-        return song;
+    public void setSongList(List<String> songList) {
+        this.songList = songList;
+    }
+
+    public List<String> getSongList() {
+        return songList;
     }
 }

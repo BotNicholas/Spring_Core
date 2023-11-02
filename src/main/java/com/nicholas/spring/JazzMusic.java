@@ -3,17 +3,24 @@ package com.nicholas.spring;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class JazzMusic implements Music{
-    @Value("So What")
-    private String song;
+    private List<String> songList;
 
-    public void setSong(String song) {
-        this.song = song;
+    public JazzMusic(){
+        this.songList=List.of("Fly Me to the Moon",
+                              "Take Five",
+                              "Unforgettable");
+    }
+
+    public void setSongList(List<String> songList) {
+        this.songList = songList;
     }
 
     @Override
-    public String getSong() {
-        return song;
+    public List<String> getSongList() {
+        return songList;
     }
 }
