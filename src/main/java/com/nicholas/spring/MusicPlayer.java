@@ -11,10 +11,12 @@ public class MusicPlayer {
     private Music music;
 
 
-    //is required for field based and setter based DI
-    public MusicPlayer(){}
+//    //is required for field based and setter based DI
+//    public MusicPlayer(){}
 
-    private MusicPlayer(Music music){
+    //If we autowire on constructor, we don't need Default constructor.
+    @Autowired
+    private MusicPlayer(@Qualifier("classicalMusic") Music music){
         this.music = music;
     }
 
@@ -26,8 +28,6 @@ public class MusicPlayer {
 //        System.out.println("Destroying " + name + " Music Player");
 //    }
 
-    @Autowired
-    @Qualifier("classicalMusic")
     public void setMusic(Music music){
         this.music = music;
     }
