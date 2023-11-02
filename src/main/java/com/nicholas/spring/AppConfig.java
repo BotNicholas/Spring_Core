@@ -4,6 +4,8 @@ import org.springframework.context.annotation.*;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import java.util.ArrayList;
+import java.util.List;
 
 @Configuration
 public class AppConfig {
@@ -23,8 +25,15 @@ public class AppConfig {
     }
 
     @Bean
+    public ArrayList<Music> musicList(){
+        return new ArrayList<>(List.of(classicalMusic(), rockMusic(), jazzMusic()));
+    }
+
+
+
+    @Bean
     public MusicPlayer musicPlayer(){
-        MusicPlayer musicPlayer = new MusicPlayer(classicalMusic(), rockMusic(), jazzMusic());
+        MusicPlayer musicPlayer = new MusicPlayer(musicList());
         musicPlayer.setName("Test player");
         musicPlayer.setVolume(10);
         return musicPlayer;
